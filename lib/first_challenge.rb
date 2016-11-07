@@ -13,10 +13,15 @@
     }
   }
 
-  #your code here
+  # contacts["Freddy Mercury"][:favorite_icecream_flavors].delete_if { |x| x == "strawberry" }
 
-contacts["Freddy Mercury"][:favorite_icecream_flavors].delete_if { |x| x == "strawberry" }
+  contacts.each do |name, data|
+    data.each do |attribute, value|
+      if attribute == :favorite_icecream_flavors
+        value.delete("strawberry")
+      end
+    end
+  end
 
-  #remember to return your newly altered contacts hash!
   contacts
 end
